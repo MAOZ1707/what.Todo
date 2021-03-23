@@ -7,9 +7,8 @@ const app = express();
 
 const AppError = require('./utils/appError');
 
-const usersRouter = require();
-const albumsRouter = require();
-const imagesRouter = require();
+const usersRouter = require('./routes/userRoute');
+const todoRouter = require('./routes/todoRoute');
 
 app.use(cors({ origin: true, credentials: true }));
 app.use(express.json());
@@ -17,8 +16,7 @@ app.use(morgan('dev'));
 
 // Route
 app.use('/api/users', usersRouter);
-app.use('/api/albums', albumsRouter);
-app.use('/api/images', imagesRouter);
+app.use('/api/todos', todoRouter);
 
 app.all('*', (req, res, next) => {
 	next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));

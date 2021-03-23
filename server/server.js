@@ -9,7 +9,9 @@ dotenv.config({ path: './config.env' });
 app.use(cors());
 app.use(cors({ origin: true, credentials: true }));
 
-let dbUrl = `mongodb+srv://maoz-cohen:${process.env.DB_PASSWORD}@what-todo.867si.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
+// TODO -- MAKE THIS IN ENV.CONFIG
+
+let dbUrl = `mongodb+srv://mazuz:Maoz@sapir17@what-todo.867si.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
 
 if (process.env.DB_URL) {
 	dbUrl = process.env.DB_URL;
@@ -27,4 +29,11 @@ mongoose
 	.catch((err) => console.log(err, chalk.red.bold('DB connection failed!!')));
 
 // server
-let port = 8000;
+let port = 8000;
+if (process.env.PORT) {
+	port = process.env.PORT;
+}
+
+app.listen(port, () => {
+	console.log(chalk.blueBright(`App running on port ${port}`));
+});
