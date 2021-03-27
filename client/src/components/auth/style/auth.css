@@ -1,1 +1,111 @@
-/* No CSS *//*# sourceMappingURL=auth.css.map */
+.auth-container {
+  margin-top: 3rem;
+  -webkit-box-shadow: -1px 5px 10px 1px #5252526b, 5px -5px 10px #ffffff;
+          box-shadow: -1px 5px 10px 1px #5252526b, 5px -5px 10px #ffffff;
+  width: 100%;
+}
+
+.auth-container .user-auth-container {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.auth-container form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+}
+
+.auth-container form .err-msg {
+  color: #ff3838;
+  font-size: 0.8rem;
+  padding: 0 1rem;
+}
+
+.auth-container form .form-controller {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10px;
+  margin-bottom: 0.8rem;
+  padding: 0 1rem;
+}
+
+.auth-container form .form-controller input {
+  height: 1.4rem;
+  border: none;
+  border-bottom: 1px solid #3a3939;
+  outline: none;
+}
+
+.auth-container .form-label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #3a3939;
+  padding: 0 1rem;
+}
+
+.auth-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.auth-container .auth-tabs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+}
+
+.auth-container .auth-tabs button {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: none;
+  text-align: center;
+  height: 2.5rem;
+}
+
+.auth-container .active {
+  background: #fff;
+  font-weight: 500;
+}
+
+.auth-container .not-active {
+  background: #b8b8b8;
+  font-weight: 300;
+}
+/*# sourceMappingURL=auth.css.map */

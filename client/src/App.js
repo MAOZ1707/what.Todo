@@ -7,6 +7,8 @@ import {
 } from 'react-router-dom';
 
 import Signup from './components/auth/Signup';
+import Dashboard from './components/dashboard/Dashboard';
+import AuthContainer from './components/auth/AuthContainer';
 import MainHeader from './components/header/MainHeader';
 import { AuthContext } from './context/AuthContext';
 import TodoContextProvider from './context/TodoContext';
@@ -14,6 +16,7 @@ import TodoContextProvider from './context/TodoContext';
 function App() {
 	const { authState } = useContext(AuthContext);
 	const [isSignup, setIsSignup] = useState(authState.isLogin);
+	console.log(authState);
 
 	useEffect(() => {
 		setIsSignup(authState.isLogin);
@@ -24,7 +27,7 @@ function App() {
 		routes = (
 			<Switch>
 				<Route exact path="/">
-					<h1>Dashboard</h1>
+					<Dashboard />
 				</Route>
 				<Redirect exact to="/" />
 			</Switch>
@@ -32,10 +35,16 @@ function App() {
 	} else {
 		routes = (
 			<Switch>
-				<Route path="/signup">
+				<Route exact path="/auth">
+					<AuthContainer />
+				</Route>
+				<Route exact path="/signup">
 					<Signup />
 				</Route>
-				<Redirect to="/signup" />
+				<Route exact path="/login">
+					<Signup />
+				</Route>
+				<Redirect to="/auth" />
 			</Switch>
 		);
 	}

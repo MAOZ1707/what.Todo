@@ -1,13 +1,25 @@
 // COLORS
 
 $color-primary: #fff;
-$color-secondary: #2d1a4b;
+$color-secondary: #1a394b;
 $color-text: #fff;
 $color-text-black: #3a3939;
-$color-success: #b26eff;
+$color-success: #3263eb;
 $color-danger: #ff3838;
+
+// Button
+$btn-base: #2f302f;
+$btn-submit: #57b42b;
+$btn-delete: #ff3838;
+
+// shadow
+$card-box-shadow: -1px 5px 10px 1px #5252526b, 5px -5px 10px #ffffff;
 
 // TYPOGRAPHY
 $font-sm: 0.8rem;
 $font-med: 1rem;
 $font-l: 1.2rem;
+
+$font-wight-t: 300;
+$font-wight-r: 400;
+$font-wight-b: 500;
