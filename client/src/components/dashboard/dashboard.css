@@ -1,0 +1,57 @@
+.dashboard-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  height: 100%;
+  padding: 0 20px;
+}
+
+.dashboard-container .dashboard-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.dashboard-container .header-info h3 {
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+.dashboard-container .create-btn-link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 42px;
+  height: 40px;
+  border: none;
+  padding: 8px;
+  border-radius: 6px;
+  background-color: #ff008085;
+  -webkit-box-shadow: 0px 4px 7px #9c159c71;
+          box-shadow: 0px 4px 7px #9c159c71;
+}
+/*# sourceMappingURL=dashboard.css.map */

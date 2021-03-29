@@ -6,7 +6,7 @@ const AppError = require('../utils/appError');
 
 exports.getAllTodosByUserId = async (req, res, next) => {
 	const userId = req.params.id;
-
+	console.log(userId);
 	let existingUser;
 	try {
 		existingUser = await User.findById(userId);
@@ -15,7 +15,6 @@ exports.getAllTodosByUserId = async (req, res, next) => {
 			new AppError('Fetching user failed, please try again later.', 404)
 		);
 	}
-
 	if (!existingUser) {
 		return next(new AppError('Could not find user for provided id', 404));
 	}
@@ -29,11 +28,9 @@ exports.getAllTodosByUserId = async (req, res, next) => {
 		);
 	}
 
-	if (!userTodos || userTodos.length === 0)
-		return new AppError(
-			'Could not find user todos, do you want to create one?  ',
-			404
-		);
+	if (!userTodos || userTodos.length === 0) {
+		return next(new AppError('Could not find todo for this user', 404));
+	}
 
 	res.status(200).json({
 		todos: userTodos,

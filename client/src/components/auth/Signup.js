@@ -58,7 +58,6 @@ const Signup = () => {
 							}
 						);
 						dispatch({ type: 'AUTH_SUCCESS', payload: response });
-						console.log(response);
 					} catch (err) {
 						console.log(err);
 					}

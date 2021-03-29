@@ -7,7 +7,6 @@ export const useFetch = () => {
 
 	const sendRequest = useCallback(
 		async (url, method = 'GET', body = null, headers = {}) => {
-			console.log(body);
 			setIsLoading(true);
 			try {
 				const response = await axios({
@@ -17,7 +16,6 @@ export const useFetch = () => {
 					headers,
 				});
 				const data = response.data;
-				console.log(data);
 				setIsLoading(false);
 				return data;
 			} catch (err) {

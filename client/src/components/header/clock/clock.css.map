@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,cAAc,CAAC;EACd,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,GAAG;EACnB,WAAW,EAAE,UAAU;EACvB,GAAG,EAAE,IAAI;EACT,UAAU,EAAE,IAAI;EAChB,SAAS,ECcA,MAAM;CDRf",
+    "sources": [
+        "clock.scss",
+        "../../../sass/_variables.scss"
+    ],
+    "names": [],
+    "file": "clock.css"
+}

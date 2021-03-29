@@ -12,11 +12,11 @@ import AuthContainer from './components/auth/AuthContainer';
 import MainHeader from './components/header/MainHeader';
 import { AuthContext } from './context/AuthContext';
 import TodoContextProvider from './context/TodoContext';
+import AuthContextProvider from './context/AuthContext';
 
 function App() {
 	const { authState } = useContext(AuthContext);
 	const [isSignup, setIsSignup] = useState(authState.isLogin);
-	console.log(authState);
 
 	useEffect(() => {
 		setIsSignup(authState.isLogin);
@@ -51,12 +51,14 @@ function App() {
 
 	return (
 		<TodoContextProvider>
-			<Router>
-				<div className="app">
-					<MainHeader />
-					<>{routes}</>
-				</div>
-			</Router>
+			<AuthContextProvider>
+				<Router>
+					<div className="app">
+						<MainHeader />
+						<>{routes}</>
+					</div>
+				</Router>
+			</AuthContextProvider>
 		</TodoContextProvider>
 	);
 }
