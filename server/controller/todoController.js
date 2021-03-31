@@ -6,7 +6,6 @@ const AppError = require('../utils/appError');
 
 exports.getAllTodosByUserId = async (req, res, next) => {
 	const userId = req.params.id;
-	console.log(userId);
 	let existingUser;
 	try {
 		existingUser = await User.findById(userId);
@@ -27,7 +26,6 @@ exports.getAllTodosByUserId = async (req, res, next) => {
 			new AppError('Could not get data, please try again later', 500)
 		);
 	}
-
 	if (!userTodos || userTodos.length === 0) {
 		return next(new AppError('Could not find todo for this user', 404));
 	}
@@ -38,6 +36,8 @@ exports.getAllTodosByUserId = async (req, res, next) => {
 };
 
 exports.createTodo = async (req, res, next) => {
+	console.log(req.body);
+	const { category, title, body, createAt, creator } = req.body;
 	const errors = validationResult(req);
 	if (!errors.isEmpty()) {
 		return next(
@@ -68,13 +68,13 @@ exports.createTodo = async (req, res, next) => {
 
 	try {
 		const newTodo = await Todos.create({
-			category: req.body.category,
-			title: req.body.title,
-			body: req.body.body,
-			createAt: moment().locale('en-au').format('L'),
-			creator: req.body.creator,
+			category,
+			title,
+			body,
+			createAt,
+			creator,
 		});
-
+		console.log(newTodo);
 		res.status(200).json({
 			todo: newTodo,
 		});

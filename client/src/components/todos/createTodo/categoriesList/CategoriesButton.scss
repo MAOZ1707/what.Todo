@@ -1,0 +1,31 @@
+@import '../../../../sass/variables';
+
+button {
+	width: 100px;
+	padding: 8px;
+	border: none;
+	font-size: $font-sm;
+	font-weight: bold;
+	border-radius: 6px;
+	color: #ffffff;
+
+	&.category-work {
+		background-color: $work;
+	}
+	&.category-shopping {
+		background: $shopping;
+	}
+	&.category-personal {
+		background: $personal;
+	}
+	&.category-payments {
+		background: $payments;
+	}
+}
+
+.inactive {
+	background: darkgrey;
+}
+.active {
+	background-color: azure;
+}

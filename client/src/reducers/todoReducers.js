@@ -13,7 +13,7 @@ export const todoReducers = (state, action) => {
 				todos: [...state.todos, action.payload],
 			};
 		case 'GET_ALL_TODOS':
-			return state.todos;
+			return action.payload;
 
 		case 'SELECTED_TODO':
 			return {

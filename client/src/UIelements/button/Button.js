@@ -11,7 +11,7 @@ const Button = (props) => {
       ${props.edit && 'btn-edit'}
       ${props.link && 'btn-link'} 
       ${props.cancel && 'btn-cancel'} 
-      ${props.images && 'btn-images'} 
+      ${props.create && 'btn-create'} 
       ${props.submit && 'btn-submit'} `}
 			onClick={props.onClick}
 			type={props.type}

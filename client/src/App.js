@@ -10,6 +10,7 @@ import Signup from './components/auth/Signup';
 import Dashboard from './components/dashboard/Dashboard';
 import AuthContainer from './components/auth/AuthContainer';
 import MainHeader from './components/header/MainHeader';
+import CreateTodo from './components/todos/createTodo/CreateTodo';
 import { AuthContext } from './context/AuthContext';
 import TodoContextProvider from './context/TodoContext';
 import AuthContextProvider from './context/AuthContext';
@@ -28,6 +29,9 @@ function App() {
 			<Switch>
 				<Route exact path="/">
 					<Dashboard />
+				</Route>
+				<Route exact path="/create-task">
+					<CreateTodo />
 				</Route>
 				<Redirect exact to="/" />
 			</Switch>

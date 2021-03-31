@@ -2,4 +2,10 @@
 
 .btn-submit {
 	background: $btn-submit;
+	width: 100%;
+}
+.btn-create {
+	background: $btn-base;
+	width: 150px;
+	border-radius: 10px;
 }

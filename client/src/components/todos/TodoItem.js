@@ -7,6 +7,7 @@ import './style/todoItem.css';
 const TodoItem = ({ info }) => {
 	const [xAxis, setXaxis] = useState('');
 	const { state, dispatch } = useContext(TodoContext);
+	const [dragMode, setDragMode] = useState(false);
 
 	let color;
 	switch (info.category) {
@@ -28,12 +29,7 @@ const TodoItem = ({ info }) => {
 
 	let x = useMotionValue(0);
 	const input = [-100, 0, 100];
-
-	const background = useTransform(x, input, [
-		' #ff008c ',
-		'#fff ',
-		'rgb(3, 209, 0)',
-	]);
+	const background = useTransform(x, input, ['#ff3838 ', '#fff ', '#FFB75E']);
 
 	useEffect(() => {
 		x.onChange((current) => {
@@ -45,9 +41,10 @@ const TodoItem = ({ info }) => {
 	}, [x, xAxis]);
 
 	const getAxisState = () => {
+		setDragMode(false);
 		console.log('DRAG--END', xAxis);
 	};
-
+	console.log(dragMode);
 	return (
 		<motion.div
 			className="todo-item"
@@ -55,8 +52,27 @@ const TodoItem = ({ info }) => {
 			style={{ x, background }}
 			dragConstraints={{ left: 0, right: 0 }}
 			onDragEnd={getAxisState}
+			onDragStart={() => setDragMode(true)}
 		>
-			<div className="todo-item-date">{info.created}</div>
+			{dragMode && (
+				<motion.div className="drag-options">
+					<motion.span
+						animate={{ y: 10, opacity: [0, 1] }}
+						transition={{ duration: 0.3 }}
+						className="drag-to-delete"
+					>
+						Delete
+					</motion.span>
+					<motion.span
+						animate={{ y: 10, opacity: [0, 1] }}
+						transition={{ duration: 0.3 }}
+						className="drag-to-edit"
+					>
+						Edit
+					</motion.span>
+				</motion.div>
+			)}
+			<div className="todo-item-date">{info.createAt}</div>
 			<p className="todo-item-title">{info.title}</p>
 			<div
 				className="todo-item-category"

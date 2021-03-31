@@ -1,0 +1,64 @@
+@import '../../../sass/variables';
+
+.create-task-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	padding: 0 20px;
+	margin-top: 20px;
+	form {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 100%;
+		height: 100%;
+		.form-controller {
+			display: flex;
+			flex-direction: column;
+			width: 100%;
+		}
+		.create-task-input {
+			border: none;
+			font-size: $font-med;
+			border-bottom: 1px solid $color-text-black;
+		}
+		.create-task-date {
+			border: none;
+			padding: 5px;
+			border-radius: 5px;
+			width: fit-content;
+			text-align: center;
+			background: #e9e7e7dc;
+			font-size: $font-med;
+			width: 150px;
+			margin: 20px 0;
+		}
+	}
+	.categories-wrapper {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+		gap: 20px;
+		margin-bottom: 20px;
+	}
+	.form-label-description {
+		color: $color-text-black;
+	}
+	.create-task-textarea {
+		border-radius: 10px;
+		resize: none;
+		width: 100%;
+		height: 150px;
+		margin-bottom: 40px;
+		border: 1px solid #bbb9b9;
+		font-size: $font-med;
+	}
+	.err-msg {
+		color: $color-danger;
+		font-size: $font-sm;
+		padding: 0 1rem;
+	}
+}
