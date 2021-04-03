@@ -29,18 +29,10 @@ const Signup = () => {
 			<Formik
 				initialValues={init}
 				validationSchema={Yup.object({
-					firstname: Yup.string()
-						.max(10, 'Must be 10 characters or less')
-						.required('Required'),
-					lastname: Yup.string()
-						.max(10, 'Must be 10 characters or less')
-						.required('Required'),
-					email: Yup.string()
-						.email('Invalid email address')
-						.required('Required'),
-					password: Yup.string()
-						.min(6, 'Must be 6 characters or more')
-						.required('Required'),
+					firstname: Yup.string().max(10, 'Must be 10 characters or less').required('Required'),
+					lastname: Yup.string().max(10, 'Must be 10 characters or less').required('Required'),
+					email: Yup.string().email('Invalid email address').required('Required'),
+					password: Yup.string().min(6, 'Must be 6 characters or more').required('Required'),
 				})}
 				onSubmit={async (values, { setSubmitting }) => {
 					try {
@@ -57,7 +49,7 @@ const Signup = () => {
 								'Content-Type': 'application/json',
 							}
 						);
-						dispatch({ type: 'AUTH_SUCCESS', payload: response });
+						dispatch({ type: 'AUTH_SUCCESS', payload: response.data });
 					} catch (err) {
 						console.log(err);
 					}
@@ -74,14 +66,7 @@ const Signup = () => {
 							</span>
 						</label>
 						<div className="form-controller">
-							<Field
-								type="firstname"
-								id="firstname"
-								name="firstname"
-								className="form-input"
-								autoComplete="off"
-								required
-							/>
+							<Field type="firstname" id="firstname" name="firstname" className="form-input" autoComplete="off" required />
 						</div>
 
 						<label htmlFor="lastname" className="form-label">
@@ -91,14 +76,7 @@ const Signup = () => {
 							</span>
 						</label>
 						<div className="form-controller">
-							<Field
-								type="lastname"
-								id="lastname"
-								name="lastname"
-								className="form-input"
-								autoComplete="off"
-								required
-							/>
+							<Field type="lastname" id="lastname" name="lastname" className="form-input" autoComplete="off" required />
 						</div>
 
 						<label htmlFor="email" className="form-label">
@@ -108,14 +86,7 @@ const Signup = () => {
 							</span>
 						</label>
 						<div className="form-controller">
-							<Field
-								type="email"
-								id="email"
-								name="email"
-								className="form-input"
-								autoComplete="off"
-								required
-							/>
+							<Field type="email" id="email" name="email" className="form-input" autoComplete="off" required />
 						</div>
 
 						<label htmlFor="password" className="form-label">
@@ -125,14 +96,7 @@ const Signup = () => {
 							</span>
 						</label>
 						<div className="form-controller">
-							<Field
-								type="password"
-								id="password"
-								name="password"
-								className="form-input"
-								autoComplete="off"
-								required
-							/>
+							<Field type="password" id="password" name="password" className="form-input" autoComplete="off" required />
 						</div>
 
 						<Button submit type="submit">

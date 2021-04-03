@@ -1,0 +1,43 @@
+@import '../../../sass/variables';
+
+.edit-task-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	form {
+		padding: 20px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		.form-controller {
+			display: flex;
+			flex-direction: column;
+			width: 100%;
+		}
+		label {
+			margin-bottom: 10px;
+			color: #969696;
+			font-size: $font-l;
+		}
+		.create-task-input {
+			border: none;
+			font-size: $font-med;
+			border-bottom: 1px solid $color-text-black;
+			margin-bottom: 30px;
+		}
+		.create-task-textarea {
+			border-radius: 10px;
+			resize: none;
+			width: 100%;
+			height: 150px;
+			margin-bottom: 40px;
+			border: 1px solid #bbb9b9;
+			font-size: $font-med;
+			padding: 20px;
+		}
+	}
+}

@@ -1,0 +1,70 @@
+.edit-task-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+}
+
+.edit-task-container form {
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+}
+
+.edit-task-container form .form-controller {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+}
+
+.edit-task-container form label {
+  margin-bottom: 10px;
+  color: #969696;
+  font-size: 1.2rem;
+}
+
+.edit-task-container form .create-task-input {
+  border: none;
+  font-size: 1rem;
+  border-bottom: 1px solid #3a3939;
+  margin-bottom: 30px;
+}
+
+.edit-task-container form .create-task-textarea {
+  border-radius: 10px;
+  resize: none;
+  width: 100%;
+  height: 150px;
+  margin-bottom: 40px;
+  border: 1px solid #bbb9b9;
+  font-size: 1rem;
+  padding: 20px;
+}
+/*# sourceMappingURL=editTodo.css.map */

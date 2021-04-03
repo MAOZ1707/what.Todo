@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 import Clock from '../header/clock/Clock';
 import { ReactComponent as PlusIcon } from '../../assets/icons/plus-solid.svg';
 import CategoryList from '../category/CategoryList';
+import TodoList from '../todos/TodoList';
 
 import './dashboard.css';
-import TodoList from '../todos/TodoList';
 
 const Dashboard = () => {
 	const history = useHistory();

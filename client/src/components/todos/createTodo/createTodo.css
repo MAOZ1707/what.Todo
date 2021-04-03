@@ -89,6 +89,7 @@
   margin-bottom: 40px;
   border: 1px solid #bbb9b9;
   font-size: 1rem;
+  padding: 20px;
 }
 
 .create-task-container .err-msg {

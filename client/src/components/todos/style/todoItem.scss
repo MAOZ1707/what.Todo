@@ -1,22 +1,38 @@
 @import '../../../sass/variables';
 
+@import './checkbox';
+
 .todo-item {
-	z-index: 100;
+	z-index: 1;
 	display: flex;
 	flex-wrap: nowrap;
-	flex-direction: row;
+	flex-direction: column;
 	align-items: center;
-	height: 2.6rem;
+	height: auto;
 	padding: 0 10px;
 	border: none;
-	border-top: 1px solid $border-trans-black;
-	border-bottom: 1px solid $border-trans-black;
+	border: 1px solid $border-trans-black;
+	border-radius: 10px;
 	position: relative;
 
+	.todo-item-wrapper {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		padding: 10px;
+		width: 100%;
+		position: relative;
+	}
+
 	.todo-item-date {
-		font-size: $font-sm;
-		color: $color-text-black;
-		flex: 1;
+		font-size: 0.7rem;
+		color: rgb(80, 80, 80);
+		width: auto;
+		background-color: transparent;
+		position: absolute;
+		left: 10px;
+		top: -15px;
 	}
 	.todo-item-title {
 		font-size: $font-med;
@@ -26,6 +42,13 @@
 		flex: 4;
 	}
 	.todo-item-description {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-top: 2px solid $border-trans-black;
+		height: auto;
+		width: 100%;
+		padding: 10px;
 	}
 	.todo-item-category {
 		margin-left: auto;

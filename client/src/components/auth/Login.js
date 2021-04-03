@@ -21,12 +21,8 @@ const Login = () => {
 			<Formik
 				initialValues={init}
 				validationSchema={Yup.object({
-					email: Yup.string()
-						.email('Invalid email address')
-						.required('Required'),
-					password: Yup.string()
-						.min(6, 'Must be 6 characters or more')
-						.required('Required'),
+					email: Yup.string().email('Invalid email address').required('Required'),
+					password: Yup.string().min(6, 'Must be 6 characters or more').required('Required'),
 				})}
 				onSubmit={async (values, { setSubmitting }) => {
 					console.log(values);
@@ -42,7 +38,7 @@ const Login = () => {
 								'Content-Type': 'application/json',
 							}
 						);
-						dispatch({ type: 'AUTH_SUCCESS', payload: response });
+						dispatch({ type: 'AUTH_SUCCESS', payload: response.data });
 						console.log(response);
 					} catch (error) {
 						console.log(error);
@@ -61,14 +57,7 @@ const Login = () => {
 							</span>
 						</label>
 						<div className="form-controller">
-							<Field
-								type="email"
-								id="email"
-								name="email"
-								className="form-input"
-								autoComplete="off"
-								required
-							/>
+							<Field type="email" id="email" name="email" className="form-input" autoComplete="off" required />
 						</div>
 
 						<label htmlFor="password" className="form-label">
@@ -78,14 +67,7 @@ const Login = () => {
 							</span>
 						</label>
 						<div className="form-controller">
-							<Field
-								type="password"
-								id="password"
-								name="password"
-								className="form-input"
-								autoComplete="off"
-								required
-							/>
+							<Field type="password" id="password" name="password" className="form-input" autoComplete="off" required />
 						</div>
 
 						<Button submit type="submit">

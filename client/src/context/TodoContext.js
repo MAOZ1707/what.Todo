@@ -12,11 +12,7 @@ const initialState = {
 
 const TodoContextProvider = (props) => {
 	const [state, dispatch] = useReducer(todoReducers, initialState);
-	return (
-		<TodoContext.Provider value={{ state, dispatch }}>
-			{props.children}
-		</TodoContext.Provider>
-	);
+	return <TodoContext.Provider value={{ state, dispatch }}>{props.children}</TodoContext.Provider>;
 };
 
 export default TodoContextProvider;
