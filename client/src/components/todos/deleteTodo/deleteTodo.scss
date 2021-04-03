@@ -1,0 +1,24 @@
+@import '../../../sass/variables';
+
+.delete-modal {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 10px;
+
+	.delete-modal-text {
+		width: 100%;
+		line-height: 1.5;
+		margin-bottom: 20px;
+		text-align: center;
+		font-size: $font-wight-r;
+	}
+	.delete-btn-wrapper {
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-evenly;
+	}
+}

@@ -10,7 +10,7 @@ import ButtonLoader from '../../../UIelements/loaders/ButtonLoader';
 
 import './editTodo.css';
 
-const EditTodo = ({ title, body, todoId, closeEditModal }) => {
+const EditTodo = ({ title, body, todoId, closeModal }) => {
 	const { error, isLoading, sendRequest } = useFetch();
 	const { dispatch } = useContext(TodoContext);
 
@@ -23,7 +23,7 @@ const EditTodo = ({ title, body, todoId, closeEditModal }) => {
 		body,
 	};
 
-	const getNewTodo = async () => {
+	const getTodos = async () => {
 		try {
 			const getDate = await sendRequest(`/api/todos/user/${userId}`, 'GET', null, {
 				'Content-Type': 'application/json',
@@ -63,10 +63,10 @@ const EditTodo = ({ title, body, todoId, closeEditModal }) => {
 						);
 
 						dispatch({ type: 'UPDATE_TODO', payload: response.data.todo });
-						getNewTodo();
+						getTodos();
 						if (response.statusText === 'OK') {
 							setTimeout(() => {
-								closeEditModal(false);
+								closeModal(false);
 							}, 500);
 						}
 					} catch (error) {

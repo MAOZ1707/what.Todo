@@ -3,9 +3,15 @@
 .btn-submit {
 	background: $btn-submit;
 	width: 100%;
+	border-radius: 10px;
 }
 .btn-create {
 	background: $btn-base;
-	width: 150px;
+	width: 100px;
+	border-radius: 10px;
+}
+.btn-danger {
+	background: $btn-delete;
+	width: 100px;
 	border-radius: 10px;
 }

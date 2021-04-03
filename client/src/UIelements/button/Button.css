@@ -22,11 +22,18 @@
 .btn-submit {
   background: #57b42b;
   width: 100%;
+  border-radius: 10px;
 }
 
 .btn-create {
   background: #2f302f;
-  width: 150px;
+  width: 100px;
+  border-radius: 10px;
+}
+
+.btn-danger {
+  background: #ff3838;
+  width: 100px;
   border-radius: 10px;
 }
 /*# sourceMappingURL=Button.css.map */

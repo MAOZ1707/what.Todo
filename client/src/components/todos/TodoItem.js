@@ -7,6 +7,7 @@ import Modal from '../../UIelements/modal/Modal';
 
 import './style/todoItem.css';
 import EditTodo from './editTodo/EditTodo';
+import DeleteTodo from './deleteTodo/DeleteTodo';
 
 const TodoItem = ({ info }) => {
 	const [xAxis, setXaxis] = useState('');
@@ -17,7 +18,8 @@ const TodoItem = ({ info }) => {
 	const [dragMode, setDragMode] = useState(false);
 	const [isOpen, setIsOpen] = useState(false);
 	const [isComplete, setIsComplete] = useState(false);
-	const [editTask, setEditTask] = useState(false);
+	const [openModal, setOpenModal] = useState(false);
+	const [dragOption, setDragOption] = useState(false);
 
 	const { error, isLoading, sendRequest } = useFetch();
 
@@ -54,23 +56,14 @@ const TodoItem = ({ info }) => {
 		setDragMode(false);
 		console.log('DRAG--END', xAxis);
 		if (xAxis === 'delete') {
-			deleteTodo();
+			setDragOption(xAxis);
+			setOpenModal(true);
 		}
 		if (xAxis === 'edit') {
-			setEditTask(true);
+			setDragOption(xAxis);
+			setOpenModal(true);
 		}
 		if (xAxis === '') return;
-	};
-
-	const deleteTodo = async () => {
-		console.log('deleteTodo');
-		try {
-			await sendRequest(`/api/todos/${info._id}`, 'DELETE', null, {
-				'Content-Type': 'application/json',
-				Authorization: 'Bearer ' + token,
-			});
-			// dispatch({ type: 'GET_ALL_TODOS', payload: getDate });
-		} catch (error) {}
 	};
 
 	const taskComplete = (e) => {
@@ -79,7 +72,7 @@ const TodoItem = ({ info }) => {
 	};
 
 	const toggleOpen = () => setIsOpen(!isOpen);
-	const closeEditModal = () => setEditTask(false);
+	const closeModal = () => setOpenModal(false);
 
 	return (
 		<motion.li
@@ -91,8 +84,9 @@ const TodoItem = ({ info }) => {
 			onDragEnd={getAxisState}
 			onDragStart={() => setDragMode(true)}
 		>
-			<Modal show={editTask} onCancel={closeEditModal}>
-				<EditTodo title={info.title} body={info.body} todoId={info._id} closeEditModal={setEditTask} />
+			<Modal show={openModal} onCancel={closeModal}>
+				{dragOption === 'edit' && <EditTodo title={info.title} body={info.body} todoId={info._id} closeModal={setOpenModal} />}
+				{dragOption === 'delete' && <DeleteTodo todoId={info._id} closeModal={setOpenModal} />}
 			</Modal>
 			{isLoading && <div>LOADING</div>}
 
