@@ -18,9 +18,10 @@
 .delete-modal .delete-modal-text {
   width: 100%;
   line-height: 1.5;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   text-align: center;
   font-size: 400;
+  font-weight: 300;
 }
 
 .delete-modal .delete-btn-wrapper {

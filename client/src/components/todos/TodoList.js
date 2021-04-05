@@ -3,14 +3,18 @@ import TodoItem from './TodoItem';
 
 import { motion, AnimateSharedLayout } from 'framer-motion';
 
-import { TodoContext } from '../../context/TodoContext';
 import { useFetch } from '../../hooks/useFetch';
+import { TodoContext } from '../../context/TodoContext';
+import { AuthContext } from '../../context/AuthContext';
+import { SearchContext } from '../../context/SearchContext';
 
 import './style/todoList.css';
-import { AuthContext } from '../../context/AuthContext';
 
 const TodoList = () => {
 	const { state, dispatch } = useContext(TodoContext);
+	const {
+		searchState: { searchTerm, inSearch },
+	} = useContext(SearchContext);
 	const {
 		authState: { token, userId },
 	} = useContext(AuthContext);
@@ -28,9 +32,22 @@ const TodoList = () => {
 			} catch (error) {}
 		};
 		fetchData();
-	}, [sendRequest, token, userId]);
+	}, [sendRequest, token, userId, searchTerm]);
 
-	console.log(state);
+	let filterTodos;
+
+	switch (inSearch) {
+		case false:
+			filterTodos = state.todos && state.todos;
+			break;
+		case true:
+			filterTodos = state.todos && state.todos.filter((todo) => todo.category.includes(searchTerm));
+			break;
+		default:
+			break;
+	}
+
+	console.log(filterTodos);
 
 	return (
 		<AnimateSharedLayout>
@@ -38,7 +55,7 @@ const TodoList = () => {
 				{error && <div style={{ background: 'red' }}>{error}</div>}
 				{isLoading && <div>LOADING....</div>}
 
-				{state.todos && !error && state.todos.map((todo) => <TodoItem info={todo} key={todo._id} />)}
+				{filterTodos && !error && filterTodos.map((todo) => <TodoItem info={todo} key={todo._id} />)}
 			</motion.ul>
 		</AnimateSharedLayout>
 	);

@@ -1,7 +1,7 @@
 // const initialState = {
 // 	todos: [],
 // 	todo: {},
-// 	isCompleted: false,
+// isComplete: false,
 // 	topPriority: false,
 // };
 
@@ -22,8 +22,6 @@ export const todoReducers = (state, action) => {
 				todo: action.todo,
 			};
 		case 'UPDATE_TODO':
-			console.log(action.payload);
-			console.log(state.todos);
 			return {
 				...state,
 				todos: state.todos.filter((todo) => {
@@ -35,6 +33,15 @@ export const todoReducers = (state, action) => {
 			return {
 				...state,
 				todos: state.todos.filter((todo) => todo._id !== action.payload._id),
+			};
+		case 'COMPLETE_TASK':
+			console.log(action);
+			return {
+				...state,
+				todos: state.todos.filter((todo) => {
+					if (todo._id === action.payload._id) return action.payload;
+					return todo;
+				}),
 			};
 		default:
 			break;

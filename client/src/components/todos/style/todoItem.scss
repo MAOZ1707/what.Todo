@@ -27,7 +27,7 @@
 
 	.todo-item-date {
 		font-size: 0.7rem;
-		color: rgb(80, 80, 80);
+		color: #505050;
 		width: auto;
 		background-color: transparent;
 		position: absolute;
@@ -75,6 +75,20 @@
 			right: -70px;
 			font-weight: $font-wight-b;
 			color: $color-danger;
+		}
+	}
+	.todo-complete {
+		color: #ebe9e9;
+		text-decoration: line-through;
+		position: relative;
+		&::after {
+			content: 'Completed';
+			width: max-content;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			color: #37bd02;
+			transform: translateY(-50%) translateX(-50%);
 		}
 	}
 }

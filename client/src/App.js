@@ -1,10 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import {
-	BrowserRouter as Router,
-	Redirect,
-	Route,
-	Switch,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
 
 import Signup from './components/auth/Signup';
 import Dashboard from './components/dashboard/Dashboard';
@@ -14,6 +9,7 @@ import CreateTodo from './components/todos/createTodo/CreateTodo';
 import { AuthContext } from './context/AuthContext';
 import TodoContextProvider from './context/TodoContext';
 import AuthContextProvider from './context/AuthContext';
+import SearchContextProvider from './context/SearchContext';
 
 function App() {
 	const { authState } = useContext(AuthContext);
@@ -56,12 +52,14 @@ function App() {
 	return (
 		<TodoContextProvider>
 			<AuthContextProvider>
-				<Router>
-					<div className="app">
-						<MainHeader />
-						<>{routes}</>
-					</div>
-				</Router>
+				<SearchContextProvider>
+					<Router>
+						<div className="app">
+							<MainHeader />
+							<>{routes}</>
+						</div>
+					</Router>
+				</SearchContextProvider>
 			</AuthContextProvider>
 		</TodoContextProvider>
 	);

@@ -11,13 +11,13 @@ import DeleteTodo from './deleteTodo/DeleteTodo';
 
 const TodoItem = ({ info }) => {
 	const [xAxis, setXaxis] = useState('');
-	const { state, dispatch } = useContext(TodoContext);
+	const { dispatch } = useContext(TodoContext);
 	const {
-		authState: { token, userId },
+		authState: { token },
 	} = useContext(AuthContext);
 	const [dragMode, setDragMode] = useState(false);
 	const [isOpen, setIsOpen] = useState(false);
-	const [isComplete, setIsComplete] = useState(false);
+	const [isComplete, setIsComplete] = useState(info.isComplete);
 	const [openModal, setOpenModal] = useState(false);
 	const [dragOption, setDragOption] = useState(false);
 
@@ -49,26 +49,40 @@ const TodoItem = ({ info }) => {
 		x.onChange((current) => {
 			if (Math.floor(current) < 0 && Math.floor(current) <= -100) setXaxis('delete');
 			if (Math.floor(current) > 0 && Math.floor(current) >= 100) setXaxis('edit');
+			if (Math.floor(current) < 100 && Math.floor(current) >= 0) setXaxis('');
+			if (Math.floor(current) > -100 && Math.floor(current) <= 0) setXaxis('');
 		});
 	}, [x, xAxis]);
 
 	const getAxisState = () => {
 		setDragMode(false);
-		console.log('DRAG--END', xAxis);
 		if (xAxis === 'delete') {
 			setDragOption(xAxis);
 			setOpenModal(true);
+			setXaxis('');
 		}
 		if (xAxis === 'edit') {
 			setDragOption(xAxis);
 			setOpenModal(true);
+			setXaxis('');
 		}
 		if (xAxis === '') return;
 	};
 
-	const taskComplete = (e) => {
+	const taskComplete = async (e) => {
 		let target = e.target.checked;
-		setIsComplete(target);
+		const response = await sendRequest(
+			`/api/todos/${info._id}/completed`,
+			'PATCH',
+			{ isComplete: target },
+			{
+				'Content-Type': 'application/json',
+				Authorization: 'Bearer ' + token,
+			}
+		);
+		const { todo } = await response.data;
+		dispatch({ type: 'COMPLETE_TASK', payload: todo });
+		setIsComplete(todo.isComplete);
 	};
 
 	const toggleOpen = () => setIsOpen(!isOpen);
@@ -81,14 +95,18 @@ const TodoItem = ({ info }) => {
 			drag="x"
 			style={{ x, background }}
 			dragConstraints={{ left: 0, right: 0 }}
+			dragElastic={0.2}
+			dragMomentum={false}
+			dragTransition={{ bounceStiffness: 200, bounceDamping: 10 }}
 			onDragEnd={getAxisState}
 			onDragStart={() => setDragMode(true)}
 		>
+			{isLoading && <div>LOADING</div>}
+
 			<Modal show={openModal} onCancel={closeModal}>
 				{dragOption === 'edit' && <EditTodo title={info.title} body={info.body} todoId={info._id} closeModal={setOpenModal} />}
 				{dragOption === 'delete' && <DeleteTodo todoId={info._id} closeModal={setOpenModal} />}
 			</Modal>
-			{isLoading && <div>LOADING</div>}
 
 			{dragMode && (
 				<motion.div className="drag-options">
@@ -109,7 +127,7 @@ const TodoItem = ({ info }) => {
 				</div>
 
 				<div className="todo-item-date">{info.createAt}</div>
-				<p className="todo-item-title">{info.title}</p>
+				<p className={`todo-item-title ${isComplete && 'todo-complete'}`}>{info.title}</p>
 				<div
 					className="todo-item-category"
 					style={{

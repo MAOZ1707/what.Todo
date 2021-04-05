@@ -166,4 +166,23 @@
   font-weight: 500;
   color: #ff3838;
 }
+
+.todo-item .todo-complete {
+  color: #ebe9e9;
+  text-decoration: line-through;
+  position: relative;
+}
+
+.todo-item .todo-complete::after {
+  content: 'Completed';
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  color: #37bd02;
+  -webkit-transform: translateY(-50%) translateX(-50%);
+          transform: translateY(-50%) translateX(-50%);
+}
 /*# sourceMappingURL=todoItem.css.map */
