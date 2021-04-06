@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useReducer } from 'react';
+import React, { createContext, useCallback, useEffect, useReducer } from 'react';
 import { authReducers } from '../reducers/authReducers';
 
 export const AuthContext = createContext();
@@ -20,11 +20,12 @@ const AuthContextProvider = (props) => {
 		localStorage.setItem('userData', JSON.stringify(authState));
 	}, [authState]);
 
-	return (
-		<AuthContext.Provider value={{ authState, dispatch }}>
-			{props.children}
-		</AuthContext.Provider>
-	);
+	const logout = useCallback(() => {
+		dispatch({ type: 'LOGOUT' });
+		localStorage.removeItem('userData');
+	}, []);
+
+	return <AuthContext.Provider value={{ authState, dispatch, logout }}>{props.children}</AuthContext.Provider>;
 };
 
 export default AuthContextProvider;

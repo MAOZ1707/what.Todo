@@ -43,4 +43,24 @@
   font-size: 1.2rem;
   font-weight: 400;
 }
+
+.main-nav .log-out-btn {
+  background: transparent;
+  font-size: 1rem;
+  width: auto;
+  height: auto;
+  padding: 5px;
+  border-radius: 50%;
+  position: absolute;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+  right: 0;
+  top: 0;
+}
+
+.main-nav .log-out-btn svg {
+  width: 30px;
+  height: 30px;
+}
 /*# sourceMappingURL=mainHeader.css.map */

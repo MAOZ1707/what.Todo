@@ -7,9 +7,6 @@ import AuthContainer from './components/auth/AuthContainer';
 import MainHeader from './components/header/MainHeader';
 import CreateTodo from './components/todos/createTodo/CreateTodo';
 import { AuthContext } from './context/AuthContext';
-import TodoContextProvider from './context/TodoContext';
-import AuthContextProvider from './context/AuthContext';
-import SearchContextProvider from './context/SearchContext';
 
 function App() {
 	const { authState } = useContext(AuthContext);
@@ -50,18 +47,12 @@ function App() {
 	}
 
 	return (
-		<TodoContextProvider>
-			<AuthContextProvider>
-				<SearchContextProvider>
-					<Router>
-						<div className="app">
-							<MainHeader />
-							<>{routes}</>
-						</div>
-					</Router>
-				</SearchContextProvider>
-			</AuthContextProvider>
-		</TodoContextProvider>
+		<Router>
+			<div className="app">
+				<MainHeader />
+				<>{routes}</>
+			</div>
+		</Router>
 	);
 }
 

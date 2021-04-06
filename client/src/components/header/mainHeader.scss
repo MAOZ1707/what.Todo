@@ -29,4 +29,21 @@
 			font-weight: $font-wight-r;
 		}
 	}
+	.log-out-btn {
+		background: transparent;
+		font-size: $font-med;
+		width: auto;
+		height: auto;
+		padding: 5px;
+		border-radius: 50%;
+		position: absolute;
+		transition: 0.3s ease-in-out;
+		cursor: pointer;
+		right: 0;
+		top: 0;
+		svg {
+			width: 30px;
+			height: 30px;
+		}
+	}
 }
