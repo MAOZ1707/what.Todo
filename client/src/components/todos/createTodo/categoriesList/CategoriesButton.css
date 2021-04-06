@@ -6,6 +6,7 @@ button {
   font-weight: bold;
   border-radius: 6px;
   color: #ffffff;
+  cursor: pointer;
 }
 
 button.category-work {

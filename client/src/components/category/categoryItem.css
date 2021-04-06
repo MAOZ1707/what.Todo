@@ -14,11 +14,13 @@
           justify-content: center;
   width: 86px;
   height: 86px;
-  background: #ffffff;
-  -webkit-box-shadow: 0px 4px 13px 2px rgba(68, 68, 68, 0.11);
-          box-shadow: 0px 4px 13px 2px rgba(68, 68, 68, 0.11);
+  color: #fff;
+  background: #343a40;
+  -webkit-box-shadow: 0px 4px 13px 2px #4444441c;
+          box-shadow: 0px 4px 13px 2px #4444441c;
   border-radius: 11px;
   position: relative;
+  cursor: pointer;
 }
 
 .category .category-tasks {
@@ -46,7 +48,7 @@
   bottom: -1px;
   left: -1px;
   right: -1px;
-  border-radius: 6px;
+  border-radius: 15px;
   z-index: 10;
 }
 /*# sourceMappingURL=categoryItem.css.map */

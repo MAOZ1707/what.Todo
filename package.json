@@ -8,5 +8,8 @@
 		"dev": "concurrently \"cd client && npm start \" \"cd server && nodemon server\""
 	},
 	"author": "",
-	"license": "ISC"
+	"license": "ISC",
+	"dependencies": {
+		"concurrently": "^6.0.1"
+	}
 }

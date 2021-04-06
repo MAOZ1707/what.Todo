@@ -8,6 +8,7 @@ button {
 	font-weight: bold;
 	border-radius: 6px;
 	color: #ffffff;
+	cursor: pointer;
 
 	&.category-work {
 		background-color: $work;

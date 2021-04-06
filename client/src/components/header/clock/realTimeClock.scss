@@ -6,7 +6,11 @@
 	align-items: flex-start;
 	gap: 20px;
 	text-align: left;
-	font-size: $font-sm;
+	font-size: $font-med;
+	background-color: #343a40;
+	color: #fff;
+	padding: 8px;
+	border-radius: 8px;
 
 	.clock-time {
 	}
