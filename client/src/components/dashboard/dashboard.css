@@ -33,6 +33,7 @@
 .dashboard-container .header-info h3 {
   font-weight: 500;
   font-size: 1.2rem;
+  color: #747474;
 }
 
 .dashboard-container .create-btn-link {
@@ -56,5 +57,11 @@
   cursor: pointer;
   -ms-flex-item-align: end;
       align-self: flex-end;
+}
+
+.dashboard-container .user-name {
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: #494949;
 }
 /*# sourceMappingURL=dashboard.css.map */

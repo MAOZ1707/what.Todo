@@ -11,9 +11,7 @@ exports.signup = async (req, res, next) => {
 
 	const errors = validationResult(req);
 	if (!errors.isEmpty()) {
-		return next(
-			new AppError('Invalid inputs passed, please check your data.', 400)
-		);
+		return next(new AppError('Invalid inputs passed, please check your data.', 400));
 	}
 
 	let existingUser;
@@ -31,9 +29,7 @@ exports.signup = async (req, res, next) => {
 	try {
 		hashedPassword = await bcrypt.hash(password, 12);
 	} catch (error) {
-		return next(
-			new AppError('Something went wrong, please try again later', 422)
-		);
+		return next(new AppError('Something went wrong, please try again later', 422));
 	}
 
 	try {
@@ -60,9 +56,7 @@ exports.signin = async (req, res, next) => {
 
 	const errors = validationResult(req);
 	if (!errors.isEmpty()) {
-		return next(
-			new AppError('Invalid inputs passed, please check your data.', 400)
-		);
+		return next(new AppError('Invalid inputs passed, please check your data.', 400));
 	}
 
 	let existingUser;
@@ -81,9 +75,7 @@ exports.signin = async (req, res, next) => {
 	try {
 		isValidPassword = await bcrypt.compare(password, existingUser.password);
 	} catch (error) {
-		return next(
-			new AppError('Login failed, please check your credentials.', 500)
-		);
+		return next(new AppError('Login failed, please check your credentials.', 500));
 	}
 
 	if (!isValidPassword) {
@@ -95,5 +87,26 @@ exports.signin = async (req, res, next) => {
 	res.status(201).json({
 		token,
 		user: existingUser,
+	});
+};
+
+exports.getUserName = async (req, res, next) => {
+	let userId = req.params.id;
+
+	let existingUser;
+	try {
+		existingUser = await User.findById(userId);
+	} catch (error) {
+		return next(new AppError('Something went wrong please try again'));
+	}
+
+	if (!existingUser) {
+		return next(new AppError('Could not find user'));
+	}
+
+	const { firstname, lastname } = existingUser;
+
+	res.status(200).json({
+		user: { firstname, lastname },
 	});
 };

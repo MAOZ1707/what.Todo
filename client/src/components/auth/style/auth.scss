@@ -55,22 +55,26 @@
 
 		button {
 			flex: 1;
-
+			border-radius: 0;
 			display: flex;
 			justify-content: center;
 			align-items: center;
 			border: none;
 			text-align: center;
 			height: 2.5rem;
+			transition: 0.2s linear;
 		}
 	}
 
 	.active {
-		background: $color-primary;
+		background: #343a40;
 		font-weight: $font-wight-b;
+		transition: 0.2s linear;
 	}
 	.not-active {
-		background: rgb(184, 184, 184);
+		transition: 0.2s linear;
+		background: #ffffff4b;
+		color: #343a40be;
 		font-weight: $font-wight-t;
 	}
 }

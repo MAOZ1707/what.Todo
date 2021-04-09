@@ -43,8 +43,12 @@ const CreateTodo = () => {
 			<Formik
 				initialValues={init}
 				validationSchema={Yup.object({
-					title: Yup.string().required('Required').min(3, 'Must be 3 characters or more'),
-					body: Yup.string().min(6, 'Must be 6 characters or more').required('Required'),
+					title: Yup.string()
+						.required('Required')
+						.min(3, 'Must be 3 characters or more'),
+					body: Yup.string()
+						.min(6, 'Must be 6 characters or more')
+						.required('Required'),
 				})}
 				onSubmit={async (values, { setSubmitting }) => {
 					try {
@@ -80,7 +84,14 @@ const CreateTodo = () => {
 							<ErrorMessage name="title" />
 						</span>
 						<div className="form-controller">
-							<Field id="title" name="title" className="create-task-input" autoComplete="off" required placeholder="Add Task" />
+							<Field
+								id="title"
+								name="title"
+								className="create-task-input"
+								autoComplete="off"
+								required
+								placeholder="Add Task"
+							/>
 						</div>
 
 						<DatePicker
@@ -103,12 +114,20 @@ const CreateTodo = () => {
 							<ErrorMessage name="body" />
 						</span>
 						<div className="form-controller">
-							<Field as="textarea" id="body" name="body" className="create-task-textarea" autoComplete="off" required />
+							<Field
+								as="textarea"
+								id="body"
+								name="body"
+								className="create-task-textarea"
+								autoComplete="off"
+								required
+							/>
 						</div>
 
 						<Button create type="submit">
 							{isLoading ? <ButtonLoader /> : 'Create task'}
 						</Button>
+						<Button back type="button" onClick={() => history.goBack()} />
 					</Form>
 				)}
 			</Formik>

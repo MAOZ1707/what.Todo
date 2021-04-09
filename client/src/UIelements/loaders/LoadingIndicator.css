@@ -1,0 +1,44 @@
+.loading-indicator-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 20px;
+  height: 200px;
+  width: 100%;
+  background-color: white;
+}
+
+.loading-indicator-wrapper .loading-shape-triangle {
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 45px solid #38fd9a;
+}
+
+.loading-indicator-wrapper .loading-shape-cube {
+  height: 40px;
+  width: 40px;
+  background-color: #fa4a4a;
+  background-color: #aaaaaa;
+}
+
+.loading-indicator-wrapper .loading-shape-circle {
+  height: 40px;
+  width: 40px;
+  background-color: #f05dfd;
+  border-radius: 50%;
+}
+
+.loading-indicator-wrapper .loading-shape-pipe {
+  height: 60px;
+  width: 30px;
+  background-color: #44a4fd;
+}
+/*# sourceMappingURL=LoadingIndicator.css.map */

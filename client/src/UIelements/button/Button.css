@@ -24,13 +24,25 @@
 }
 
 .btn-submit {
-  background: #57b42b;
-  width: 100%;
+  background: #3273eb;
   border-radius: 6px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  width: 200px;
+  margin-bottom: 15px;
 }
 
 .btn-create {
   background: #2f302f;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  border-radius: 6px;
+}
+
+.btn-edit {
+  background: #ffb75e;
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
@@ -43,5 +55,56 @@
   width: -moz-max-content;
   width: max-content;
   border-radius: 6px;
+}
+
+.btn-back {
+  background: transparent;
+  border-radius: 6px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-back:hover svg {
+  -webkit-animation: arrow 0.3s ease-in-out 3;
+          animation: arrow 0.3s ease-in-out 3;
+}
+
+.btn-back svg {
+  margin-top: 10px;
+  width: 40px;
+  height: 40px;
+}
+
+@-webkit-keyframes arrow {
+  from {
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+  }
+  to {
+    -webkit-transform: translateX(-20px);
+            transform: translateX(-20px);
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+  }
+}
+
+@keyframes arrow {
+  from {
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+  }
+  to {
+    -webkit-transform: translateX(-20px);
+            transform: translateX(-20px);
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+  }
 }
 /*# sourceMappingURL=Button.css.map */

@@ -85,6 +85,7 @@
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+  border-radius: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -97,15 +98,22 @@
   border: none;
   text-align: center;
   height: 2.5rem;
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
 }
 
 .auth-container .active {
-  background: #fff;
+  background: #343a40;
   font-weight: 500;
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
 }
 
 .auth-container .not-active {
-  background: #b8b8b8;
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
+  background: #ffffff4b;
+  color: #343a40be;
   font-weight: 300;
 }
 /*# sourceMappingURL=auth.css.map */

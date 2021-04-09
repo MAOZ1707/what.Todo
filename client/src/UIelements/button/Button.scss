@@ -2,11 +2,18 @@
 
 .btn-submit {
 	background: $btn-submit;
-	width: 100%;
 	border-radius: 6px;
+	align-self: center;
+	width: 200px;
+	margin-bottom: 15px;
 }
 .btn-create {
 	background: $btn-base;
+	width: max-content;
+	border-radius: 6px;
+}
+.btn-edit {
+	background: $btn-edit;
 	width: max-content;
 	border-radius: 6px;
 }
@@ -14,4 +21,31 @@
 	background: $btn-delete;
 	width: max-content;
 	border-radius: 6px;
+}
+.btn-back {
+	background: transparent;
+	border-radius: 6px;
+	width: max-content;
+
+	transition: all 0.3s ease-in-out;
+	&:hover svg {
+		animation: arrow 0.3s ease-in-out 3;
+	}
+
+	svg {
+		margin-top: 10px;
+		width: 40px;
+		height: 40px;
+	}
+}
+
+@keyframes arrow {
+	from {
+		transform: translateX(0px);
+		transition: all 0.3s ease-in-out;
+	}
+	to {
+		transform: translateX(-20px);
+		transition: all 0.3s ease-in-out;
+	}
 }

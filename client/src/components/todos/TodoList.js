@@ -7,6 +7,7 @@ import { useFetch } from '../../hooks/useFetch';
 import { TodoContext } from '../../context/TodoContext';
 import { AuthContext } from '../../context/AuthContext';
 import { SearchContext } from '../../context/SearchContext';
+import LoadingIndicator from '../../UIelements/loaders/LoadingIndicator';
 
 import './style/todoList.css';
 
@@ -24,10 +25,15 @@ const TodoList = () => {
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				const getDate = await sendRequest(`/api/todos/user/${userId}`, 'GET', null, {
-					'Content-Type': 'application/json',
-					Authorization: 'Bearer ' + token,
-				});
+				const getDate = await sendRequest(
+					`/api/todos/user/${userId}`,
+					'GET',
+					null,
+					{
+						'Content-Type': 'application/json',
+						Authorization: 'Bearer ' + token,
+					}
+				);
 				dispatch({ type: 'GET_ALL_TODOS', payload: getDate.data });
 			} catch (error) {}
 		};
@@ -41,21 +47,24 @@ const TodoList = () => {
 			filterTodos = state.todos && state.todos;
 			break;
 		case true:
-			filterTodos = state.todos && state.todos.filter((todo) => todo.category.includes(searchTerm));
+			filterTodos =
+				state.todos &&
+				state.todos.filter((todo) => todo.category.includes(searchTerm));
 			break;
 		default:
 			break;
 	}
 
-	console.log(filterTodos);
-
 	return (
 		<AnimateSharedLayout>
 			<motion.ul layout initial={{ borderRadius: 25 }} className="todo-list">
 				{error && <div style={{ background: 'red' }}>{error}</div>}
-				{isLoading && <div>LOADING....</div>}
+				{isLoading && <LoadingIndicator />}
 
-				{filterTodos && !error && filterTodos.map((todo) => <TodoItem info={todo} key={todo._id} />)}
+				{!isLoading &&
+					filterTodos &&
+					!error &&
+					filterTodos.map((todo) => <TodoItem info={todo} key={todo._id} />)}
 			</motion.ul>
 		</AnimateSharedLayout>
 	);

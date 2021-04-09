@@ -1,4 +1,5 @@
 import React from 'react';
+import { ReactComponent as BackArrow } from '../../assets/icons/left-arrow.svg';
 
 import './Button.css';
 
@@ -16,6 +17,7 @@ const Button = (props) => {
 			onClick={props.onClick}
 			type={props.type}
 		>
+			{props.back && <BackArrow />}
 			{props.children}
 		</button>
 	);
