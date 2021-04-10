@@ -10,11 +10,11 @@
 	position: relative;
 
 	.app-title {
-		background: #343a40;
+		color: #343a40;
 		width: 274px;
 		height: 152px;
 		top: -95px;
-		color: #f0f0f0;
+		background-color: #ffffff;
 		font-size: 1rem;
 		text-align: center;
 		border-radius: 0 0 50% 50%;
@@ -39,11 +39,11 @@
 		position: absolute;
 		transition: 0.3s ease-in-out;
 		cursor: pointer;
-		right: 0;
-		top: 0;
+		right: 10px;
+		top: 7px;
 		svg {
-			width: 30px;
-			height: 30px;
+			width: 25px;
+			height: 25px;
 		}
 	}
 }

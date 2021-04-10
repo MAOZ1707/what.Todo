@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,oBAAoB,CAAC;EACpB,OAAO,EAAE,IAAI;EACb,WAAW,EAAE,MAAM;EACnB,eAAe,EAAE,MAAM;EACvB,KAAK,ECCS,OAAO;EDArB,aAAa,EAAE,IAAI;CACnB",
+    "sources": [
+        "errorMsg.scss",
+        "../../sass/_variables.scss"
+    ],
+    "names": [],
+    "file": "errorMsg.css"
+}

@@ -1,0 +1,9 @@
+@import '../../sass//variables';
+
+.error-msg-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: $color-danger;
+	margin-bottom: 20px;
+}

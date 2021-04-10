@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -8,6 +8,7 @@ import { AuthContext } from '../../context/AuthContext';
 import { useFetch } from '../../hooks/useFetch';
 import Button from '../../UIelements/button/Button';
 import ButtonLoader from '../../UIelements/loaders/ButtonLoader';
+import ErrorMsg from '../../UIelements/errorMsg/ErrorMsg';
 
 import './style/auth.css';
 
@@ -32,7 +33,7 @@ const Signup = () => {
 				transition={{ type: 'spring', mass: 0.8, stiffness: 100 }}
 				className="user-auth-container"
 			>
-				{error && <div>we have an error</div>}
+				{error && <ErrorMsg error={error} />}
 
 				<Formik
 					initialValues={init}

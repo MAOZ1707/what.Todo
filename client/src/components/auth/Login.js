@@ -7,6 +7,7 @@ import { useFetch } from '../../hooks/useFetch';
 import { AuthContext } from '../../context/AuthContext';
 import Button from '../../UIelements/button/Button';
 import ButtonLoader from '../../UIelements/loaders/ButtonLoader';
+import ErrorMsg from '../../UIelements/errorMsg/ErrorMsg';
 
 const Login = () => {
 	const { dispatch } = useContext(AuthContext);
@@ -26,7 +27,7 @@ const Login = () => {
 				transition={{ type: 'spring', mass: 0.8, stiffness: 100 }}
 				className="user-auth-container"
 			>
-				{error && <div>we have an error</div>}
+				{error && <ErrorMsg error={error} />}
 				<Formik
 					initialValues={init}
 					validationSchema={Yup.object({

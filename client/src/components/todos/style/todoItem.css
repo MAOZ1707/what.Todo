@@ -131,6 +131,7 @@
   height: auto;
   width: 100%;
   padding: 10px;
+  z-index: 1;
 }
 
 .todo-item .todo-item-category {
@@ -169,7 +170,7 @@
 }
 
 .todo-item .todo-complete {
-  color: #ebe9e9;
+  color: #cfcfcf;
   text-decoration: line-through;
   position: relative;
 }
@@ -185,5 +186,11 @@
   color: #37bd02;
   -webkit-transform: translateY(-50%) translateX(-50%);
           transform: translateY(-50%) translateX(-50%);
+}
+
+.todo-item .todo-complete-description {
+  color: #cfcfcf;
+  text-decoration: line-through;
+  position: relative;
 }
 /*# sourceMappingURL=todoItem.css.map */

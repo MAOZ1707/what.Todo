@@ -7,6 +7,7 @@ import Button from '../../../UIelements/button/Button';
 import LoadingIndicator from '../../../UIelements/loaders/LoadingIndicator';
 
 import './deleteTodo.css';
+import ErrorMsg from '../../../UIelements/errorMsg/ErrorMsg';
 
 const DeleteTodo = ({ todoId, closeModal }) => {
 	const { error, isLoading, sendRequest } = useFetch();
@@ -45,6 +46,7 @@ const DeleteTodo = ({ todoId, closeModal }) => {
 	};
 	return (
 		<div className="delete-modal">
+			{error && <ErrorMsg error={error} />}
 			{isLoading ? (
 				<LoadingIndicator />
 			) : (

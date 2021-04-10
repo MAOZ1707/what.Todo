@@ -8,6 +8,7 @@ import { TodoContext } from '../../../context/TodoContext';
 import Button from '../../../UIelements/button/Button';
 import ButtonLoader from '../../../UIelements/loaders/ButtonLoader';
 import LoadingSpinner from '../../../UIelements/loaders/LoadingIndicator';
+import ErrorMsg from '../../../UIelements/errorMsg/ErrorMsg';
 
 import './editTodo.css';
 
@@ -43,7 +44,7 @@ const EditTodo = ({ title, body, todoId, closeModal }) => {
 
 	return (
 		<div className="edit-task-container">
-			{error && <div>we have an error</div>}
+			{error && <ErrorMsg error={error} />}
 			{isLoading ? (
 				<LoadingSpinner />
 			) : (

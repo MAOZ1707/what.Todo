@@ -6,7 +6,10 @@ import { AuthContext } from '../../context/AuthContext';
 import './mainHeader.css';
 
 const MainHeader = () => {
-	const { dispatch } = useContext(AuthContext);
+	const {
+		authState: { token },
+		dispatch,
+	} = useContext(AuthContext);
 
 	const handleLogout = () => {
 		dispatch({ type: 'LOGOUT' });
@@ -18,9 +21,11 @@ const MainHeader = () => {
 			<div className="app-title">
 				<h4>What TO.DO</h4>
 			</div>
-			<button className="log-out-btn" onClick={handleLogout}>
-				<LogoutIcon />
-			</button>
+			{token && (
+				<button className="log-out-btn" onClick={handleLogout}>
+					<LogoutIcon />
+				</button>
+			)}
 		</div>
 	);
 };

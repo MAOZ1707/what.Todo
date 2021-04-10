@@ -14,6 +14,7 @@ import CategoriesButtons from './categoriesList/CategoriesButtons';
 import './createTodo.css';
 import 'react-datepicker/dist/react-datepicker.css';
 import { TodoContext } from '../../../context/TodoContext';
+import ErrorMsg from '../../../UIelements/errorMsg/ErrorMsg';
 
 const CreateTodo = () => {
 	const { error, isLoading, sendRequest } = useFetch();
@@ -38,7 +39,7 @@ const CreateTodo = () => {
 
 	return (
 		<div className="create-task-container">
-			{error && <div>we have an error</div>}
+			{error && <ErrorMsg error={error} />}
 			{isLoading && <div>ADD LOADING INDICATOR</div>}
 			<Formik
 				initialValues={init}

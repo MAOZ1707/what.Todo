@@ -50,6 +50,7 @@
 		height: auto;
 		width: 100%;
 		padding: 10px;
+		z-index: 1;
 	}
 	.todo-item-category {
 		margin-left: auto;
@@ -79,7 +80,7 @@
 		}
 	}
 	.todo-complete {
-		color: #ebe9e9;
+		color: #cfcfcf;
 		text-decoration: line-through;
 		position: relative;
 		&::after {
@@ -91,5 +92,10 @@
 			color: #37bd02;
 			transform: translateY(-50%) translateX(-50%);
 		}
+	}
+	.todo-complete-description {
+		color: #cfcfcf;
+		text-decoration: line-through;
+		position: relative;
 	}
 }
